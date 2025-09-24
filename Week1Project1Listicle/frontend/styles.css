@@ -1,0 +1,49 @@
+body {
+  background-color: #121212; /* Dark theme */
+  color: #f0f0f0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f1f1f;
+}
+
+main {
+  padding: 2rem;
+}
+
+ul#track-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+li.track {
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+li.track:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+li.track h3 {
+  margin-top: 0;
+  color: #ff6f61; /* Accent color */
+}
+
+li.track p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+}
