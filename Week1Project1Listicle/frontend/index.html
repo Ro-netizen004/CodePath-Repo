@@ -4,36 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Phonk Playlist</title>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-  >
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
 
   <!-- Header -->
-  <header>
-    <h1>My Phonk Playlist</h1>
-    <p>I love phonk! Some of my personal favorites here</p>
+  <header class="bg-gradient-to-r from-purple-600 to-pink-500 text-white p-6 shadow-md">
+    <h1 class="text-4xl font-bold">My Phonk Playlist</h1>
+    <p class="mt-2 text-lg">I love phonk! Some of my personal favorites here</p>
   </header>
 
   <!-- Main content -->
-  <main>
-    <section>
-      <h2>Phonk list</h2>
-      <ul id="track-list">
+  <main class="flex-grow p-6">
+    <section class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4 text-purple-600">Phonk list</h2>
+      <ul id="track-list" class="list-disc pl-6 space-y-2">
         <!-- will be populated by javascript-->
       </ul>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 My Listicle App</p>
+  <footer class="bg-gray-200 text-center p-4">
+    <p class="text-sm">&copy; 2025 My Listicle App</p>
   </footer>
 
-  <script src = "script.js" ></script>
-
+  <script src="script.js"></script>
 </body>
 </html>

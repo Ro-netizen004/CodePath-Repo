@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Track Details</h1>
+  </header>
+
+  <main>
+    <section id="track-details">
+      <h2 id="track-title">Loading...</h2>
+      <p><strong>Artist:</strong> <span id="track-artist"></span></p>
+      <p><strong>Year:</strong> <span id="track-year"></span></p>
+      <p><strong>Category:</strong> <span id="track-category"></span></p>
+      <p id="track-description"></p>
+    </section>
+
+    <button id="back-button">Go Back</button>
+  </main>
+
+  <script>
+    const titleEl = document.getElementById("track-title");
+    const artistEl = document.getElementById("track-artist");
+    const yearEl = document.getElementById("track-year");
+    const categoryEl = document.getElementById("track-category");
+    const descEl = document.getElementById("track-description");
+    const backBtn = document.getElementById("back-button");
+
+    // Get the track ID from the URL path (/track/:id)
+    const pathParts = window.location.pathname.split("/");
+    const trackId = pathParts[pathParts.length - 1];
+
+    // Fetch track data from API
+    async function loadTrack(id) {
+      try {
+        const response = await fetch(`/tracks/${id}`);
+        if (!response.ok) throw new Error("Track not found");
+        const track = await response.json();
+
+        titleEl.textContent = track.title;
+        artistEl.textContent = track.artist;
+        yearEl.textContent = track.year;
+        categoryEl.textContent = track.category;
+        descEl.textContent = track.description;
+
+      } catch (error) {
+        titleEl.textContent = "Error loading track";
+        descEl.textContent = error.message;
+        console.error(error);
+      }
+    }
+
+    // Go back to index page
+    backBtn.addEventListener("click", () => {
+      window.location.href = "/";
+    });
+
+    if (trackId) {
+      loadTrack(trackId);
+    } else {
+      titleEl.textContent = "No track selected";
+    }
+  </script>
+
+</body>
+</html>

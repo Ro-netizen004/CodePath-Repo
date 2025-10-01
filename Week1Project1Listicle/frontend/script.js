@@ -14,7 +14,7 @@ async function loadTracks() {
             // Create button
             const button = document.createElement("button");
             button.textContent = "See more details";
-            button.addEventListener("click", () => loadOneTrack(track.id));
+            button.addEventListener("click", () => window.location.href = `/tracks/${track.id}`);
 
             li.innerHTML = `
                 <h3>${track.title}</h3>
