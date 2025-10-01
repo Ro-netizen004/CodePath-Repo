@@ -14,6 +14,16 @@ async function loadTracks() {
             // Create button
             const button = document.createElement("button");
             button.textContent = "See more details";
+            button.className = `
+                mt-3
+                px-4 py-2
+                bg-purple-600 hover:bg-pink-500
+                text-white font-semibold
+                rounded-full
+                shadow-lg
+                transition-all duration-300
+                transform hover:scale-105
+                `;
             button.addEventListener("click", () => window.location.href = `/tracks/${track.id}`);
 
             li.innerHTML = `

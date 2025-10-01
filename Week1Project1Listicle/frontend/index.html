@@ -7,32 +7,80 @@
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- In <head>, add Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
+<style>
+  .font-crucifixion {
+    font-family: 'Metal Mania', cursive;
+  }
+  </style>
+
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen">
+<body class="bg-black text-white flex flex-col min-h-screen">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-purple-600 to-pink-500 text-white p-6 shadow-md">
-    <h1 class="text-4xl font-bold">My Phonk Playlist</h1>
-    <p class="mt-2 text-lg">I love phonk! Some of my personal favorites here</p>
+  <!-- Header / Hero Section -->
+  <header class="relative h-[75vh] md:h-[75vh] flex items-center justify-center text-center overflow-hidden">
+    
+    <!-- Background image -->
+    <img src="images/phonk.png" alt="Phonk vibes" class="absolute inset-0 w-full h-full object-cover brightness-50 animate-slow-zoom">
+
+    <!-- Neon gradient overlay -->
+    <div class="animate-pulse"></div>
+
+    <!-- Overlay for text -->
+    <div class="relative z-10 px-4">
+     <h1 class="text-8xl sm:text-9xl md:text-10xl lg:text-12xl font-extrabold text-white animate-pulse font-crucifixion neon-glow">
+      My Phonk Playlist
+    </h1>
+
+    <p class="mt-4 text-sm sm:text-sm md:text-sm text-gray-200 drop-shadow-md">
+      I love phonk! Some of my personal favorites here
+    </p>
+
+
+      <!-- View Playlist Button -->
+      <a href="#track-list" class="mt-6 inline-block px-6 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg hover:bg-pink-500 transition-all duration-300">
+        View Playlist
+      </a>
+    </div>
   </header>
 
   <!-- Main content -->
+  <!-- Main content -->
   <main class="flex-grow p-6">
-    <section class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
-      <h2 class="text-2xl font-semibold mb-4 text-purple-600">Phonk list</h2>
-      <ul id="track-list" class="list-disc pl-6 space-y-2">
-        <!-- will be populated by javascript-->
-      </ul>
+    <section class="max-w-5xl mx-auto bg-gray-900/90 rounded-xl shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-6 text-purple-400 text-center">Phonk List</h2>
+      
+      <!-- Grid for tracks -->
+      <div id="track-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- JavaScript will populate cards here -->
+      </div>
     </section>
   </main>
 
+
   <!-- Footer -->
-  <footer class="bg-gray-200 text-center p-4">
+  <footer class="bg-gray-900 text-center p-4 text-gray-400">
     <p class="text-sm">&copy; 2025 My Listicle App</p>
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Optional: Tailwind custom animation for slow zoom -->
+  <style>
+    @layer utilities {
+      @keyframes slow-zoom {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+      }
+      .animate-slow-zoom {
+        animation: slow-zoom 20s ease-in-out infinite;
+      }
+    }
+  </style>
 </body>
 </html>
